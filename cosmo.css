@@ -1,0 +1,103 @@
+:root {
+    /* Color Palette */
+    --blue: #2780E3;
+    --indigo: #6610f2;
+    --purple: #613d7c;
+    --pink: #e83e8c;
+    --red: #FF0039;
+    --orange: #f0ad4e;
+    --yellow: #FF7518;
+    --green: #3FB618;
+    --teal: #20c997;
+    --cyan: #9954BB;
+    --white: #fff;
+    --gray: #868e96;
+    --gray-dark: #373a3c;
+
+    /* Theme Colors */
+    --primary: #2780E3;
+    --secondary: #373a3c;
+    --success: #3FB618;
+    --info: #9954BB;
+    --warning: #FF7518;
+    --danger: #FF0039;
+    --light: #f8f9fa;
+    --dark: #373a3c;
+
+    /* Breakpoints */
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+
+    /* Typography */
+    --font-family-sans-serif: "Segoe UI", "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Import Source Sans Pro font */
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700");
+
+/* Modern Reset and Base Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+    line-height: 1.15;
+    text-size-adjust: 100%;
+    tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family-sans-serif);
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--gray-dark);
+    text-align: left;
+    background-color: var(--white);
+}
+
+/* Typography Improvements */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+h1, .h1 { font-size: 2.34375rem; }
+h2, .h2 { font-size: 1.875rem; }
+h3, .h3 { font-size: 1.640625rem; }
+h4, .h4 { font-size: 1.90625rem; }
+h5, .h5 { font-size: 1.171875rem; }
+h6, .h6 { font-size: 0.9375rem; }
+
+.lead {
+    font-size: 1.171875rem;
+    font-weight: 300;
+}
+
+/* Display Classes */
+.display-1 { font-size: 6rem; font-weight: 300; line-height: 1.2; }
+.display-2 { font-size: 5.5rem; font-weight: 300; line-height: 1.2; }
+.display-3 { font-size: 4.5rem; font-weight: 300; line-height: 1.2; }
+.display-4 { font-size: 3.5rem; font-weight: 300; line-height: 1.2; }
+
+/* Link Styles */
+a {
+    color: var(--primary);
+    text-decoration: none;
+    background-color: transparent;
+}
+
+a:hover {
+    color: color-mix(in srgb, var(--primary) 80%, black);
+    text-decoration: underline;
+}
