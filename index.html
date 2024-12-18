@@ -59,3 +59,99 @@
 
 </body>
 </html>
+
+<div id="cute-audio-player" class="audio-player" style="display: none;">
+    <div class="player-container">
+        <button id="play-pause-btn" class="play-pause-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path id="play-icon" d="M5 3l14 9-14 9V3z"/>
+                <rect id="pause-icon" x="6" y="4" width="4" height="16" style="display:none;"/>
+                <rect id="pause-icon-2" x="14" y="4" width="4" height="16" style="display:none;"/>
+            </svg>
+        </button>
+        <div class="track-info">
+            <span id="current-track">Chill :)</span>
+        </div>
+    </div>
+</div>
+
+<style>
+#cute-audio-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: none; /* Initially hidden */
+}
+
+.audio-player {
+    background-color: rgba(10, 10, 10, 0.8);
+    border-radius: 30px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+    font-family: 'Kelly Slab', cursive;
+}
+
+.play-pause-btn {
+    background: none;
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.play-pause-btn:hover {
+    transform: scale(1.1);
+}
+
+.play-pause-btn svg {
+    width: 100%;
+    height: 100%;
+}
+
+.track-info {
+    margin-left: 15px;
+    font-size: 14px;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const audioPlayer = document.getElementById('cute-audio-player');
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const playIcon = document.getElementById('play-icon');
+    const pauseIcons = document.querySelectorAll('#pause-icon, #pause-icon-2');
+    const audio = new Audio("song.mp3"); // Replace with your audio file path
+
+    // Show the audio player on the first click on the webpage
+    const showAudioPlayer = () => {
+        audioPlayer.style.display = 'flex'; 
+        document.removeEventListener('click', showAudioPlayer); // Remove the listener after the first click
+    };
+
+    document.addEventListener('click', (event) => {
+        // Show the player only if clicking outside the player
+        if (!audioPlayer.contains(event.target)) {
+            showAudioPlayer();
+        }
+    });
+
+    // Play/pause toggle functionality
+    playPauseBtn.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+            playIcon.style.display = 'none';
+            pauseIcons.forEach(icon => (icon.style.display = 'block'));
+        } else {
+            audio.pause();
+            playIcon.style.display = 'block';
+            pauseIcons.forEach(icon => (icon.style.display = 'none'));
+        }
+    });
+});
+</script>
